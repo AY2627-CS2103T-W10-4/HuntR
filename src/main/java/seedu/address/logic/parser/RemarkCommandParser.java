@@ -8,6 +8,8 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 
+import seedu.address.model.person.Remark;
+
 public class RemarkCommandParser {
 
     public RemarkCommand parse(String args) throws ParseException {
@@ -25,7 +27,6 @@ public class RemarkCommandParser {
 
         String remark = argMultimap.getValue(PREFIX_REMARK).orElse("");
 
-        return new RemarkCommand(index, remark);
+        return new RemarkCommand(index, new Remark(remark));
     }
-
 }
